@@ -1,4 +1,4 @@
-package comap
+package conmap
 
 import (
 	"fmt"
@@ -10,21 +10,22 @@ import (
 
 func genFakeInput() (m map[string]interface{}) {
 	m = make(map[string]interface{})
-	for i := 0; i < 10000; i++ {
-		m[fmt.Sprintf("key-%d", i)] = fmt.Sprintf("val-%d", i)
+	for i := 0; i < 100000; i++ {
+		m[fmt.Sprintf("key-%07d", i)] = fmt.Sprintf("val-%07d", i)
 	}
 	return m
 }
 
-func TestCoMap(t *testing.T) {
+func TestConMapCRUD(t *testing.T) {
 	fakeInput := genFakeInput()
-	cm := NewCoMap()
+
+	cm := NewConMap()
 	cm.BatchStore(fakeInput)
 	assert.Equal(t, cm.Empty(), false)
 	assert.Equal(t, cm.Count(), len(fakeInput))
-	assert.Equal(t, cm.StoreIfNotExists("key-10000", "val-10000"), true)
-	assert.Equal(t, cm.Has("key-10000"), true)
-	cm.Remove("key-10000")
-	assert.Equal(t, cm.Has("key-10000"), false)
+	assert.Equal(t, cm.StoreIfNotExists("key-0100001", "val-0100001"), true)
+	assert.Equal(t, cm.Has("key-0100001"), true)
+	cm.Remove("key-0100001")
+	assert.Equal(t, cm.Has("key-0100001"), false)
 	reflect.DeepEqual(fakeInput, cm.Map())
 }

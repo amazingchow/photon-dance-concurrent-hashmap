@@ -1,26 +1,19 @@
-# comap
+# photon-dance-concurrent-hashmap
 
-![comap](doc/comap.jpeg)
+![conmap](doc/conmap.jpeg)
 
-## Get Started
-
-### Prerequisites
-
-* OS: Linux
-* Golang: v1.12+
-
-### Usage
+## Usage
 
 ```golang
 import (
     ...
-    "github.com/amazingchow/comap"
+    "github.com/amazingchow/photon-dance-concurrent-hashmap"
     ...
 )
 
 ...
 
-cm := NewCoMap()
+cm := NewConMap()
 cm.Store("Bob", 15)
 ...
 ```
@@ -28,20 +21,20 @@ cm.Store("Bob", 15)
 ## Benchmark
 
 ```text
------------------------------------------------------------------------
-Item                                    Iter                TPS 
------------------------------------------------------------------------
-      CoMap Throughput Batch-1          5000000               376 ns/op
-  GolangMap Throughput Batch-1          3000000               426 ns/op
-     CoMap Throughput Batch-16           500000              3474 ns/op
- GolangMap Throughput Batch-16           300000              8354 ns/op
-     CoMap Throughput Batch-32           200000              7016 ns/op
- GolangMap Throughput Batch-32           200000             16276 ns/op
-     CoMap Throughput Batch-64           100000             13950 ns/op
- GolangMap Throughput Batch-64           100000             23842 ns/op
-    CoMap Throughput Batch-128            50000             29551 ns/op
-GolangMap Throughput Batch-128            30000             45355 ns/op
------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Item                                              Iter               TPS 
+---------------------------------------------------------------------------------
+BenchmarkConMapThroughputBatch_1-12               100000               695 ns/op
+BenchmarkGolangMapThroughputBatch_1-12            100000               610 ns/op
+BenchmarkConMapThroughputBatch_16-12              100000              7865 ns/op
+BenchmarkGolangMapThroughputBatch_16-12           100000              9418 ns/op
+BenchmarkConMapThroughputBatch_32-12              100000             14318 ns/op
+BenchmarkGolangMapThroughputBatch_32-12           100000             19169 ns/op
+BenchmarkConMapThroughputBatch_64-12              100000             24099 ns/op
+BenchmarkGolangMapThroughputBatch_64-12           100000             40984 ns/op
+BenchmarkConMapThroughputBatch_128-12             100000             40638 ns/op
+BenchmarkGolangMapThroughputBatch_128-12          100000             92595 ns/op
+---------------------------------------------------------------------------------
 ```
 
 ## Documentation
@@ -62,11 +55,7 @@ GolangMap Throughput Batch-128            30000             45355 ns/op
 
 ### Step 3
 
-* 🔃 Create a new PR using https://github.com/amazingchow/comap/compare!
-
-## FAQ
-
-* refer to [FAQ](FAQ.md).
+* 🔃 Create a new PR using https://github.com/amazingchow/photon-dance-concurrent-hashmap/compare!
 
 ## Support
 

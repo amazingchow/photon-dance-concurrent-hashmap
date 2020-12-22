@@ -1,4 +1,4 @@
-package comap
+package conmap
 
 // More info: http://www.isthe.com/chongo/tech/comp/fnv/index.html#FNV-source
 
