@@ -1,19 +1,17 @@
 # photon-dance-concurrent-hashmap
 
-![conmap](doc/conmap.jpeg)
-
 ## Usage
 
 ```golang
 import (
     ...
-    "github.com/amazingchow/photon-dance-concurrent-hashmap"
+    conmap "github.com/amazingchow/photon-dance-concurrent-hashmap"
     ...
 )
 
 ...
 
-cm := NewConMap()
+cm := conmap.NewConMap()
 cm.Store("Bob", 15)
 ...
 ```
